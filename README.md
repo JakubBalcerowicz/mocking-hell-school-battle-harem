@@ -8,6 +8,7 @@
 
  - [Piotr Aszkielaniec](github.com/readher)
  - [Szymon Cimochowski](github.com/Rilok)
+ - [Jakub Balcerowicz](github.com/JakubBalcerowicz)
  
 #### Temat Projektu
 
