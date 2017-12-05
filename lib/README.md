@@ -14,7 +14,7 @@
   gem 'rspec', :require => false, :group => :test
   gem 'simplecov', :require => false, :group => :test
  ```
-  - Tworzymy plik .travis.yml o treści:
+  - Tworzymy plik _.travis.yml_ o treści:
 
   ```yml
   env:
@@ -36,7 +36,7 @@
   - Klikamy na _Settings_ a następnie _Test coverage_.
   - Kopiujemy _TEST REPORTER ID_ i wklejamy w miejsce tekstu w pliku _.travis.yml_.
 3. W katalogu _lib_ umieszczamy plik źródłowy programu testowego.
-4. W katalogu _spec_ tworzymy plik spec_helper.rb o treści:
+4. W katalogu _spec_ tworzymy plik _spec_helper.rb_ o treści:
 
  ```yml
  require 'simplecov'
@@ -45,5 +45,12 @@
  require_relative '../lib/test'
  ```
 5. Do katalogu _spec_ wklejamy plik z testem/testami rspec programu testowego i na jego początku umieszczamy wyłącznie _require 'spec_helper'_ (nie umieszczamy wymogu pliku źródłowego programu testowego).
-6. Po dokonaniu zmian w repozytorium i wykonaniu builda przez Travisa, Code Climate powinien otrzymać od Travisa raport i umieścić statystyki na temat maintainability oraz test coverage na stronie naszego repozytorium na _codeclimate.com_. W celu umieszczenia odnośników do statusu w naszym README.md na GitHubie, wchodzimy w _Settings_ a następnie _Badges_, wybieramy Markdown i umieszczamy kod w naszym Readme (z jakiegoś powodu czasem zamiast obrazka tworzy się zwykłe hiperłącze).
-7. Naturalnie gdy zaczniemy już robić projekt, nazwy plików (_test.rb_, _test_spec.rb_) ulegną zmianie, jednak należy pamiętać o zachowaniu metodologii (aktualizowanie _spec_helper.rb_ itp.)
+6. Po dokonaniu zmian w repozytorium i wykonaniu builda przez Travisa, Code Climate powinien otrzymać od Travisa raport i umieścić statystyki na temat _Test coverage_ na stronie naszego repozytorium na _codeclimate.com_. W celu umieszczenia odnośników do statusu w naszym README.md na GitHubie, wchodzimy w _Settings_ a następnie _Badges_, wybieramy Markdown i umieszczamy kod w naszym Readme (z jakiegoś powodu czasem zamiast obrazka tworzy się zwykłe hiperłącze).
+7. Naturalnie gdy zaczniemy już robić projekt, nazwy plików (_test.rb_, _test_spec.rb_) ulegną zmianie, jednak należy pamiętać o zachowaniu metodologii (dodawanie relatives do _spec_helper.rb_ i umieszczanie _require 'spec_helper'_ na początku plików z testami). Kluczowe jest to, aby w pliku _spec_helper.rb_ na początlu zawsze znajdowało się
+
+ ```yml
+ require 'simplecov'
+ SimpleCov.start
+ ```
+
+W przeciwnym wypadku funkcja badająca kod nie prześledzi testów i raport się nie wygeneruje lub będzie błędny.
