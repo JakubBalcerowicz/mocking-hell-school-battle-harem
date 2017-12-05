@@ -12,7 +12,7 @@
  
 #### Temat Projektu
 
-#### Travis CI - [![Build Status](https://travis-ci.org/my-rspec/mocking-hell-school-battle-harem.svg?branch=master)](https://travis-ci.org/my-rspec/mocking-hell-school-battle-harem)
+#### Travis CI [![Build Status](https://travis-ci.org/my-rspec/mocking-hell-school-battle-harem.svg?branch=master)](https://travis-ci.org/my-rspec/mocking-hell-school-battle-harem)
 
 #### Code Climate
 
