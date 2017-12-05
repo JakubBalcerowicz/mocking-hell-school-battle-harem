@@ -1,6 +1,6 @@
 ![alt text](https://i.imgur.com/OykAoy5.png "He protec but he also rspec")
 
-# Laboratoria "Testowanie aplikacji Ruby" Informatyka Rok III
+# Projekt zespołowy "Testowanie aplikacji Ruby" Informatyka Rok III
 
 #### Prowadzący - dr [Włodzimierz Bzyl](https://github.com/wbzyl)
 
