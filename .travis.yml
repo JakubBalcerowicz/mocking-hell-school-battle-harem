@@ -1,14 +1,33 @@
 env:
   global:
     - CC_TEST_REPORTER_ID=f0de60bb4e95d490f54260360a86ed99776ada3da8570aaae0e90b58ac04783a
+    - secure: "p88xtX6wSA1ELO4EdxNSH+8p2U+PxnLbipBp1p46wGfHmGrgmpWX98NdbRAXTTK1Z3IVwWQDbhE3hHFH5Dx/SkS2eBjMt4lW+r8oooxp/6Nf/r8og59/4a5xptNLZXpwObtOzVeuXkXkZLuSJ4pj7h0itFDgmapFUCLewusnzuEWH8yX1DsJp65JGMH9DX37NSnLd0FJakSW1k4E7fm4piRgctSboInSsvsnQiuz6ISbRO9p8PmdTcXwurtit2ghBDbwObuufdbN+ktD9v/aN1rAOqoc5r4B1G+824Z+2Gpn/xaTeGsRH6CVH1tgZR9+f6CmxDHmOEukVoLFgv1CgUV5JQEs9S0n2EQwMlCmsm7tP/nwpla8glFNzwsZqb+iYIQRI1fsEYeG2LDb+eM3Sk2RA+AtkMaPra9xIqgAwpgiwqaFBBSmB2Fx3QL9yS3wFwytjOYXHx+zMkRm5Qaz58l/JgCQWRgvH2bOxwqVC/+dzfHrI1mTabjIrWIzyDZNZSmCFSL609u8c230MxMRrVushquVvVGYAP0XKl5tv20DjFVju8ZrCx/HWLh3Hux/COIP5uA1n32XrY1w9hbVnusS2CAz+36NBJyvPY+q6ZqYgT6JyoUX4bZ8/LzvplHZSddGxkzXhNQj/fUL90MGKnTY1uO97mpLy+a7oaJiPrM="
+
+before_install:
+      - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "my-rspec/mocking-hell-school-battle-harem"
+      description: "Build submitted via Travis CI"
+    notification_email: readher@gmail.com
+    build_command_prepend: ""
+    build_command:   ""
+    branch_pattern: coverity_scan
+
 language: ruby
+
 rvm:
   - 2.4
+
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+
 script:
   - bundle install; rspec spec --format documentation
+
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
