@@ -1,4 +1,4 @@
 require 'simplecov'
 SimpleCov.start
 
-require_relative '../lib/test'
+require_relative '../lib/square_diff'
