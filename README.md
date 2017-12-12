@@ -16,6 +16,8 @@
 
 #### Temat Projektu
 
+TBD
+
 ### :new: Konfiguracja usługi Code Climate
 
 1. Logujemy się na _codeclimate.com_, gdzie autoryzujemy konto z GitHub.
